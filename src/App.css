@@ -1,0 +1,59 @@
+/* styles.css */
+
+/* Center the content vertically and horizontally */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: rgb(219, 206, 206);
+}
+
+/* Style the todo container */
+div.outerbox {
+  background-color: rgb(180, 116, 240);
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+div.innerbox {
+  background-color: rgb(236, 113, 236);
+  padding: 10px;
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+/* Style the h1 element */
+h1 {
+  font-size: 34px;
+  margin-bottom: 20px;
+}
+
+/* Style the input fields */
+input[type="text"] {
+  width: 80%;
+  padding:10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-size: 16px;
+}
+
+/* Style the "Add Todo" button */
+button {
+  background-color: #007BFF;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 3px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #023367;
+}
