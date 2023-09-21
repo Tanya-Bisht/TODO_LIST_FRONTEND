@@ -1,48 +1,66 @@
-/* styles.css */
-
-/* Center the content vertically and horizontally */
 body {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
+  padding: 5%;
   margin: 0;
   background-color: rgb(219, 206, 206);
 }
 
-/* Style the todo container */
 div.outerbox {
-  background-color: rgb(180, 116, 240);
+  background-color: rgb(222, 218, 225);
   padding: 10px;
+  width: 80%;
+  margin: .5em auto;
+  align-items: center;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   text-align: center;
 }
+
 div.innerbox {
-  background-color: rgb(236, 113, 236);
-  padding: 10px;
+  background-color: rgb(206, 33, 188, 0.878);
+  padding: 20px;
   border-radius: 15px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   text-align: center;
 }
 
-/* Style the h1 element */
+.lists {
+  background-color: #ccc;
+  border-radius: 15px;
+  box-shadow: 1px 0px 6px 1px rgba(206, 33, 188, 0.878);
+  height: 40%;
+  width: 20%;
+  padding: 20px;
+
+}
+
+.listouter {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  height: 60%;
+  width: 100%;
+  gap: 20px;
+  justify-content: center;
+}
+
 h1 {
   font-size: 34px;
   margin-bottom: 20px;
 }
 
-/* Style the input fields */
 input[type="text"] {
-  width: 80%;
-  padding:10px;
+  width: 90%;
+  padding: 10px;
   margin-bottom: 10px;
   border: 1px solid #ccc;
   border-radius: 3px;
   font-size: 16px;
 }
 
-/* Style the "Add Todo" button */
 button {
   background-color: #007BFF;
   color: #fff;
