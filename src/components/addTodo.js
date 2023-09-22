@@ -8,7 +8,6 @@ function AddTodo({postApi}){
 
     const addTitle = (e) => {
         setTitle(e.target.value)
-    
       }
     
       const addDescription = (e) => {
@@ -36,7 +35,6 @@ function AddTodo({postApi}){
         <input type="text" onChange={addDescription} placeholder="Description" value={description}  />
         <button onClick={addToDo}>Add Todo</button>
     </div>
-
     </>
 
 }

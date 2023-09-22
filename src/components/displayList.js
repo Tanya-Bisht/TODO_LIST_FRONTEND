@@ -1,6 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
+function DisplayList({todos,deleteApi}) {
 
-function DisplayList({todos}) {
+
+    const deleteTodo=(ID)=>{
+        deleteApi(ID)
+       
+    }
 
 
     return (
@@ -13,6 +19,11 @@ function DisplayList({todos}) {
                             <strong>{todo.Title}</strong>
                             <p>{todo.Description}</p>
                         </div>
+                        <div>
+                            <button onClick={() => deleteTodo(todo._id)}>Delete</button>
+                        </div>
+
+
                     </div>
                 ))}
             </div>

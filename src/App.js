@@ -40,19 +40,31 @@ const getApiData = async () => {
     try {
       await axios.post("http://localhost:5000/todo", data)
       console.log(data.title)
-      setRender(false)
+      setRender(!render)
       console.log("postapi")
-
     }
     catch (err) {
       console.log("error while fetching the api data ", err)
     }
   }
 
+
+  const deleteApi=async (id) => {
+    try {
+      await axios.delete(`http://localhost:5000/todo/${id}`)
+      setRender(!render)
+      console.log("deleteApi")
+    }
+    catch (err) {
+      console.log("error while deleting data ", err)
+    }
+  }
+
   return (
     <div className='outerbox'><h1>Todo List</h1>
       <AddTodo postApi={postApiData}/>
-       <DisplayList todos={getData}/>
+       <DisplayList todos={getData} deleteApi={deleteApi}/>
+       
     </div>
   )
 }
