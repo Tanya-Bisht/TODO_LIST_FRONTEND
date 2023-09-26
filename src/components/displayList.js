@@ -1,6 +1,15 @@
 import React, { useState } from "react";
-import axios from "axios";
-function DisplayList({todos,deleteApi}) {
+import InputComponent from "./InputComponent";
+
+
+function DisplayList({todos,deleteApi,editApi}) {
+
+const [updateDescription,setUpdateDescription]=useState(false)
+const[id,setId]=useState("")
+const [des,setDes]=useState("")
+
+
+
 
 
     const deleteTodo=(ID)=>{
@@ -8,6 +17,7 @@ function DisplayList({todos,deleteApi}) {
        
     }
 
+   
 
     return (
         <>
@@ -15,19 +25,25 @@ function DisplayList({todos,deleteApi}) {
             <div className="listouter">
                 {todos.map((todo) => (
                     <div className="lists" key={todo._id}>
+                         
                         <div className="listschild">
                             <strong>{todo.Title}</strong>
-                            <p>{todo.Description}</p>
+                        
+                            {updateDescription && (todo._id==id)?<InputComponent setdes={setDes} description={des} id={todo._id} editApi={editApi} setUpdateDescription={setUpdateDescription}/>: <p>{todo.Description}</p>}
                         </div>
                         <div>
+                        
                             <button onClick={() => deleteTodo(todo._id)}>Delete</button>
+                            <button onClick={()=>{
+                                 setId(todo._id)
+                                 setDes(todo.Description)
+                                setUpdateDescription(true)
+                            }}>Edit</button>
+                           
                         </div>
-
-
                     </div>
                 ))}
-            </div>
-
+            </div>           
         </>
 
     )

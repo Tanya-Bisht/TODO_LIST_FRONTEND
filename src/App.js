@@ -2,8 +2,8 @@
 import './App.css'
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import {DisplayList} from './components/displayList';        
-import AddTodo from './components/addTodo';
+import {DisplayList} from './components/DisplayList';        
+import AddTodo from './components/AddTodo';
 
 
 function App() {
@@ -59,11 +59,23 @@ const getApiData = async () => {
       console.log("error while deleting data ", err)
     }
   }
+  const editApi=async (data) => {
+    try {
+      
+      await axios.patch(`http://localhost:5000/todo/${data.id}`,data)
+      setRender(!render)
+      console.log("editApi")
+    }
+    catch (err) {
+      console.log("error while editing data ", err)
+    }
+  }
 
   return (
     <div className='outerbox'><h1>Todo List</h1>
       <AddTodo postApi={postApiData}/>
-       <DisplayList todos={getData} deleteApi={deleteApi}/>
+       <DisplayList todos={getData} deleteApi={deleteApi} editApi={editApi}/>
+       
        
     </div>
   )
