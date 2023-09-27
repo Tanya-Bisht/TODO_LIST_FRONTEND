@@ -1,23 +1,27 @@
 import React, { useState } from "react";
-import InputComponent from "./InputComponent";
 
 
 function DisplayList({todos,deleteApi,editApi}) {
 
 const [updateDescription,setUpdateDescription]=useState(false)
 const[id,setId]=useState("")
-const [des,setDes]=useState("")
-
-
-
+const [description,setDescription]=useState("")
 
 
     const deleteTodo=(ID)=>{
-        deleteApi(ID)
-       
+        deleteApi(ID) 
     }
 
-   
+    const changeDescription=(e)=>{   
+     setDescription(e.target.value)
+    }
+
+    const submit=(e)=>{ 
+       e.preventDefault()
+       editApi({id,description})
+       setUpdateDescription(false)
+    }
+
 
     return (
         <>
@@ -28,17 +32,25 @@ const [des,setDes]=useState("")
                          
                         <div className="listschild">
                             <strong>{todo.Title}</strong>
-                        
-                            {updateDescription && (todo._id==id)?<InputComponent setdes={setDes} description={des} id={todo._id} editApi={editApi} setUpdateDescription={setUpdateDescription}/>: <p>{todo.Description}</p>}
+                            
+                        {updateDescription && (todo._id===id)?<form onSubmit={submit}><input onChange={changeDescription} type='text' value={description}></input></form>:<p>{todo.Description}</p>}
+                     
                         </div>
-                        <div>
-                        
+                        <div>    
                             <button onClick={() => deleteTodo(todo._id)}>Delete</button>
+                            {!updateDescription?
                             <button onClick={()=>{
-                                 setId(todo._id)
-                                 setDes(todo.Description)
-                                setUpdateDescription(true)
-                            }}>Edit</button>
+                               console.log("edit button clicked")
+                            
+                               setUpdateDescription(true)
+                               setId(todo._id)
+                               setDescription(todo.Description)
+
+
+                            }}>Edit</button>:
+                            
+                                <button onClick={submit}>Save</button>                           
+                        }
                            
                         </div>
                     </div>
